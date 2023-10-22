@@ -9,6 +9,7 @@ export default class ContactMeButton extends LightningElement {
     company
     email;
     description;
+    snackbar;
 
     renderedCallback(){
         this.dialog = this.template.querySelector('.contact-dialog');
@@ -17,6 +18,7 @@ export default class ContactMeButton extends LightningElement {
         this.company = this.template.querySelector('.company');
         this.email = this.template.querySelector('.email');
         this.description = this.template.querySelector('.description');
+        this.snackbar = this.template.querySelector('c-snackbar');
     }
 
     showDialog() {
@@ -42,7 +44,7 @@ export default class ContactMeButton extends LightningElement {
             company: companyValue,
             email: emailValue,
             description: descriptionValue   
-        });
+        }).then(() => {this.snackbar.showSnackBar('Your request has been received.')});
 
         this.closeDialog();
     }
