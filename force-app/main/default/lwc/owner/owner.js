@@ -3,5 +3,5 @@ import IMAGES from '@salesforce/resourceUrl/Images';
 
 export default class Owner extends LightningElement {
 
-    imageURL = IMAGES + '/Photo.jpeg';
+    imageURL = IMAGES + '/Me.jpg';
 }
