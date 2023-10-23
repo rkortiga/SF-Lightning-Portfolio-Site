@@ -1,6 +1,6 @@
 import { LightningElement, api } from 'lwc';
 
-export default class Snackbar extends LightningElement {
+export default class SnackBar extends LightningElement {
 
     snackbarMessage;
 

@@ -1,5 +1,7 @@
 import { LightningElement } from 'lwc';
 import createLead from '@salesforce/apex/ContactMeController.createLead';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+
 
 export default class ContactMeButton extends LightningElement {
 
@@ -9,7 +11,7 @@ export default class ContactMeButton extends LightningElement {
     company;
     email;
     description;
-    snackbar;
+   /*  snackbar; */
 
     renderedCallback() {
         this.dialog = this.template.querySelector('.contact-dialog');
@@ -18,7 +20,7 @@ export default class ContactMeButton extends LightningElement {
         this.company = this.template.querySelector('.company');
         this.email = this.template.querySelector('.email');
         this.description = this.template.querySelector('.description');
-        this.snackbar = this.template.querySelector('c-snackbar');
+        /* this.snackbar = this.template.querySelector('c-snackbar'); */
     }
 
     showDialog() {
@@ -31,13 +33,13 @@ export default class ContactMeButton extends LightningElement {
 
     handleSubmit(event) {
         event.preventDefault();
-
+    
         const firstnameValue = this.firstname.value;
         const lastnameValue = this.lastname.value;
         const companyValue = this.company.value;
         const emailValue = this.email.value;
         const descriptionValue = this.description.value;
-        
+    
         createLead({
             firstname: firstnameValue,
             lastname: lastnameValue,
@@ -45,12 +47,26 @@ export default class ContactMeButton extends LightningElement {
             email: emailValue,
             description: descriptionValue
         })
-        .then(() => { this.snackbar.showSnackBar('Your request has been received.')})
+        .then(() => {
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Success',
+                    message: 'Your request has been received.',
+                    variant: 'success',
+                })
+            );
+        })
         .catch((error) => {
-            this.snackbar.showSnackBar('Unable to accept contact request.');
-            console.log(JSON.stringify(error));
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error',
+                    message: 'Unable to accept contact request.',
+                    variant: 'error',
+                })
+            );
+            console.error(JSON.stringify(error));
         });
-
+    
         this.closeDialog();
-    }
+    }    
 }

@@ -1,6 +1,4 @@
 
-
-
 label, input, textarea {
     display: block;
     width: 100%;
@@ -29,7 +27,7 @@ textarea {
     margin-top: 15px;
     font-size: 18px;
     border-radius: 5px;
-    background-color: var(--dxp-g-brand);
-    color: var(--dxp-g-brand-contrast);
+    background-color: grey;
+    color: var(--dxp-g-brand-);
 }
 
