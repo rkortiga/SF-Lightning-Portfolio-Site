@@ -1,7 +1,8 @@
 global class ContactMeController {
 
     @AuraEnabled
-    public static void createLead(String firstname, String lastname, String company, String email, String description) {
+    public static void createLead(String firstname, String lastname, 
+                                  String company, String email, String description) {
 
         Lead lead = new Lead();
 

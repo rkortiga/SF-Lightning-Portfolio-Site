@@ -6,12 +6,12 @@ export default class ContactMeButton extends LightningElement {
     dialog;
     firstname;
     lastname;
-    company
+    company;
     email;
     description;
     snackbar;
 
-    renderedCallback(){
+    renderedCallback() {
         this.dialog = this.template.querySelector('.contact-dialog');
         this.firstname = this.template.querySelector('.firstname');
         this.lastname = this.template.querySelector('.lastname');
@@ -37,7 +37,7 @@ export default class ContactMeButton extends LightningElement {
         const companyValue = this.company.value;
         const emailValue = this.email.value;
         const descriptionValue = this.description.value;
-
+        
         createLead({
             firstname: firstnameValue,
             lastname: lastnameValue,
