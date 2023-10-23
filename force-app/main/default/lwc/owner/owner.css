@@ -1,6 +1,12 @@
+.outer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 img {
+    width: 70%;
     border: 2px solid black;
-    border-radius:  7px;
+    border-radius: 7px;
 }
 
 h1 {
@@ -24,12 +30,16 @@ button {
 
 @media only screen and (min-width: 768px) {
 
+    .outer-container {
+        display: flex;
+        flex-direction: row-reverse;
+    }
     .container {
-        float: left;
-        width: 33%;
+        width: 50%;
     }
 
     .call-to-action {
         margin-top: 10%;
     }
+
 }
