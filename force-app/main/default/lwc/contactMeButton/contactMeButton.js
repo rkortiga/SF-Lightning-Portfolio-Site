@@ -2,7 +2,6 @@ import { LightningElement } from 'lwc';
 import createLead from '@salesforce/apex/ContactMeController.createLead';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
-
 export default class ContactMeButton extends LightningElement {
 
     dialog;
@@ -11,7 +10,6 @@ export default class ContactMeButton extends LightningElement {
     company;
     email;
     description;
-   /*  snackbar; */
 
     renderedCallback() {
         this.dialog = this.template.querySelector('.contact-dialog');
@@ -20,7 +18,6 @@ export default class ContactMeButton extends LightningElement {
         this.company = this.template.querySelector('.company');
         this.email = this.template.querySelector('.email');
         this.description = this.template.querySelector('.description');
-        /* this.snackbar = this.template.querySelector('c-snackbar'); */
     }
 
     showDialog() {
@@ -68,5 +65,12 @@ export default class ContactMeButton extends LightningElement {
         });
     
         this.closeDialog();
-    }    
+    }
+
+    // New function to handle button hover
+    handleMouseOver(event) {
+        // Add functionality here, e.g., change the button's style
+        const button = this.template.querySelector('.launch-button');
+        button.classList.add('hovered');
+    }
 }

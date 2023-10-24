@@ -4,6 +4,10 @@ label, input, textarea {
     width: 100%;
 }
 
+.hover-button:hover {
+    background-color: lightblue;
+}
+
 label {
     text-align: left;
     margin-top: 10px;
@@ -27,7 +31,7 @@ textarea {
     margin-top: 15px;
     font-size: 18px;
     border-radius: 5px;
-    background-color: grey;
+    background-color: lightgray;
     color: var(--dxp-g-brand-);
 }
 
