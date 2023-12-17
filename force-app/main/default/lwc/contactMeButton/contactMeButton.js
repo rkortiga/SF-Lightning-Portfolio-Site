@@ -69,7 +69,7 @@ export default class ContactMeButton extends LightningElement {
 
     // New function to handle button hover
     handleMouseOver(event) {
-        // Add functionality here, e.g., change the button's style
+
         const button = this.template.querySelector('.launch-button');
         button.classList.add('hovered');
     }
